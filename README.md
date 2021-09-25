@@ -3,4 +3,4 @@
 <br>
 <strong>Genre</strong>: Aventure narrative, suspense, horreur
 <br>
-<strong>Inspiration</strong>: Emily Is Away
+<strong>Inspiration</strong>: <a href="https://fr.wikipedia.org/wiki/Emily_Is_Away">Emily Is Away</a>
