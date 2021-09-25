@@ -7,4 +7,4 @@
 <br>
 <strong>Palette de couleurs</strong>:<a href="https://coolors.co/1c1717-c4c7ca-edeeed-553434-431490">coolors.co</a><br>
 <br>
-<img src='file:///D:/session_3/Vous%20%C3%AAtes%20le%20h%C3%A9ros/assets/diagramme.png'>
+<img src='file:///D:/session_3/Vous%20%C3%AAtes%20le%20h%C3%A9ros/assets/diagramme.png' width='941' height='1441'>
