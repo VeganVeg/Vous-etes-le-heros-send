@@ -1,7 +1,14 @@
+let tookWatch = 0;
+(watchOrNot = function () {
+    tookWatch++;
+    goToChapter("kyle_goesto_address");
+});
+
+
 let chaptersObj = {
     kyle_text_mia: {
         subtitle: 'Kyle is worried',
-        text: 'Its evening, and Mia does not seem to be at home. She didnt tell me she had to stay late at work. Maybe I should text her to see if everything is fine. Hey! Are you alright? Will you be home soon?  ',
+        text: 'Its evening, and Mia does not seem to be at home. She didnt tell me she had to stay late at work. Maybe I should text her to see if everything is fine. Hey! Are you alright? Will you be home soon?',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
@@ -134,7 +141,7 @@ let chaptersObj = {
             action: 'goToChapter("kyle_accepts")'
         }]
     },
-//FONCTIONNE MAL ALLEZ À kyle_accepts ligne: 205
+    //FONCTIONNE MAL ALLEZ À kyle_accepts ligne: 205
     kyle_ask_kdnp: {
         subtitle: 'Kyle asks to the kidnapper what he wants',
         text: 'So what do you want from me.',
@@ -150,7 +157,7 @@ let chaptersObj = {
         text: 'I want money.',
         img: 'assets/image_texte.jpg',
         options: [{
-        
+
             text: 'How much',
             action: 'goToChapter("kyle_howmuch_money")'
         }, {
@@ -221,7 +228,7 @@ let chaptersObj = {
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'Take the watch',
-            action: 'goToChapter("kyle_goesto_address")'
+            action: 'watchOrNot()'
         }, {
             text: 'Take the wallet',
             action: 'goToChapter("kyle_goesto_address")'
@@ -234,7 +241,7 @@ let chaptersObj = {
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
-            action:'goToChapter("kdnp_gives_address")'
+            action: 'goToChapter("kdnp_gives_address")'
         }]
     },
 
@@ -275,7 +282,7 @@ let chaptersObj = {
         subtitle: 'Kyle doesnt have his watch with him',
         text: 'Kyle didnt bring his watch with him.He will therefore not be able to get to the appointment on time, which will make Mia die.(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option : [{
+        option: [{
             text: 'try again',
             action: 'goToChapter("kyle_text_mia")'
         }]
@@ -318,7 +325,7 @@ let chaptersObj = {
         subtitle: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves',
         text: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option:[{
+        option: [{
             text: 'continue',
             action: 'goToChapter("kyle_mia_leave")'
         }]
@@ -328,11 +335,11 @@ let chaptersObj = {
         subtitle: 'Kyle leaves with Mia',
         text: 'Mia leaves safely with Kyle.(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option:[{
+        option: [{
             text: 'try again',
             action: 'goToChapter("kyle_text_mia")'
         }]
-        
+
     }
 }
 
@@ -347,7 +354,7 @@ function goToChapter(chapterName) {
     let btn = document.querySelector('.button');
     let btnValue = '';
     console.log(chapter.option.length);
-    for(let index = 0; index < chapter.option.length; index++){
+    for (let index = 0; index < chapter.option.length; index++) {
         btnValue += `<button onclick = '${chapter.option[index].action}'>${chapter.option[index].text}</button>`;
     }
     btn.innerHTML = btnValue;
@@ -355,4 +362,4 @@ function goToChapter(chapterName) {
     text.innerText = chaptersObj[chapterName].text;
     img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
 
-}
+};
