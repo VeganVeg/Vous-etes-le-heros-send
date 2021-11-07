@@ -1,9 +1,8 @@
-let tookWatch = 0;
-(watchOrNot = function () {
-    tookWatch++;
+let tookWatch = false;
+function watchOrNot() {
+    tookWatch = true;
     goToChapter("kyle_goesto_address");
-});
-
+};
 
 let chaptersObj = {
     kyle_text_mia: {
@@ -347,19 +346,22 @@ function goToChapter(chapterName) {
     const chapter = chaptersObj[chapterName];
     console.log(chapter.subtitle);
     console.log(chapter.text);
+    console.log(chapter.option.length);
 
     let subtitle = document.querySelector('.chapter');
     let text = document.querySelector('.text');
     let img = document.querySelector('.image');
     let btn = document.querySelector('.button');
     let btnValue = '';
-    console.log(chapter.option.length);
+
     for (let index = 0; index < chapter.option.length; index++) {
         btnValue += `<button onclick = '${chapter.option[index].action}'>${chapter.option[index].text}</button>`;
     }
+
     btn.innerHTML = btnValue;
     subtitle.innerText = chaptersObj[chapterName].subtitle;
     text.innerText = chaptersObj[chapterName].text;
     img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
-
 };
+
+goToChapter('kyle_text_mia');
