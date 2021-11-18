@@ -1,7 +1,22 @@
+let tookWatch = false;
+function watchOrNot() {
+    tookWatch = true;
+    goToChapter("kyle_goesto_address");
+};
+
+function watchStatus() {
+    if (tookWatch == true) {
+        goToChapter("kyle_has_watch")
+    }
+    else if (tookWatch == false) {
+        goToChapter("kyle_no_watch")
+    }
+}
+
 let chaptersObj = {
     kyle_text_mia: {
         subtitle: 'Kyle is worried',
-        text: 'Its evening, and Mia does not seem to be at home. She didnt tell me she had to stay late at work. Maybe I should text her to see if everything is fine. Hey! Are you alright? Will you be home soon?  ',
+        text: 'Its evening, and Mia does not seem to be at home. She didnt tell me she had to stay late at work. Maybe I should text her to see if everything is fine. Hey! Are you alright? Will you be home soon?',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
@@ -131,10 +146,10 @@ let chaptersObj = {
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
-            action: 'goToChapter("kyle_accepts")'
+            action: 'goToChapter("kyle_ask_kdnp")'
         }]
     },
-//FONCTIONNE MAL ALLEZ À kyle_accepts ligne: 205
+
     kyle_ask_kdnp: {
         subtitle: 'Kyle asks to the kidnapper what he wants',
         text: 'So what do you want from me.',
@@ -149,8 +164,9 @@ let chaptersObj = {
         subtitle: 'What the kidnapper wants',
         text: 'I want money.',
         img: 'assets/image_texte.jpg',
-        options: [{
-        
+        video: 'assets/video2.mp4',
+        option: [{
+
             text: 'How much',
             action: 'goToChapter("kyle_howmuch_money")'
         }, {
@@ -221,7 +237,7 @@ let chaptersObj = {
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'Take the watch',
-            action: 'goToChapter("kyle_goesto_address")'
+            action: 'watchOrNot()'
         }, {
             text: 'Take the wallet',
             action: 'goToChapter("kyle_goesto_address")'
@@ -234,7 +250,7 @@ let chaptersObj = {
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
-            action:'goToChapter("kdnp_gives_address")'
+            action: 'goToChapter("kdnp_gives_address")'
         }]
     },
 
@@ -251,7 +267,7 @@ let chaptersObj = {
     kyle_goesto_address: {
         subtitle: 'Kyle goes to the address',
         text: 'Kyle goes to the address (not in the discussion)',
-        img: 'assets/image_texte.jpg',
+        video: 'assets/video1.mp4',
         option: [{
             text: 'continue',
             action: 'goToChapter("kyles_watch")'
@@ -262,20 +278,18 @@ let chaptersObj = {
         subtitle: 'Kyle needs to check the time to find out if hes late, but does he have his watch?',
         text: 'I should check the time, but do I have my watch?',
         img: 'assets/image_texte.jpg',
+        localisation: 1,
         option: [{
-            text: 'Yes',
-            action: 'goToChapter("kyle_has_watch")'
-        }, {
-            text: 'No',
-            action: 'goToChapter("kyle_no_watch")'
+            text: 'continue',
+            action: 'watchStatus()'
         }]
     },
 
     kyle_no_watch: {
         subtitle: 'Kyle doesnt have his watch with him',
-        text: 'Kyle didnt bring his watch with him.He will therefore not be able to get to the appointment on time, which will make Mia die.(not in the discussion)',
+        text: 'Kyle didnt bring his watch with him. He will therefore not be able to get to the appointment on time, which will make Mia die.(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option : [{
+        option: [{
             text: 'try again',
             action: 'goToChapter("kyle_text_mia")'
         }]
@@ -318,7 +332,7 @@ let chaptersObj = {
         subtitle: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves',
         text: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option:[{
+        option: [{
             text: 'continue',
             action: 'goToChapter("kyle_mia_leave")'
         }]
@@ -328,31 +342,62 @@ let chaptersObj = {
         subtitle: 'Kyle leaves with Mia',
         text: 'Mia leaves safely with Kyle.(not in the discussion)',
         img: 'assets/image_texte.jpg',
-        option:[{
+        option: [{
             text: 'try again',
             action: 'goToChapter("kyle_text_mia")'
         }]
-        
+
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() { 
+    goToChapter(localStorage.getItem('data'))
+  });
+
 function goToChapter(chapterName) {
     const chapter = chaptersObj[chapterName];
-    console.log(chapter.subtitle);
-    console.log(chapter.text);
+
+    localStorage.setItem("data", chapterName);
+
 
     let subtitle = document.querySelector('.chapter');
     let text = document.querySelector('.text');
     let img = document.querySelector('.image');
     let btn = document.querySelector('.button');
     let btnValue = '';
-    console.log(chapter.option.length);
-    for(let index = 0; index < chapter.option.length; index++){
+
+    for (let index = 0; index < chapter.option.length; index++) {
         btnValue += `<button onclick = '${chapter.option[index].action}'>${chapter.option[index].text}</button>`;
-    }
+    };
+
     btn.innerHTML = btnValue;
     subtitle.innerText = chaptersObj[chapterName].subtitle;
     text.innerText = chaptersObj[chapterName].text;
     img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
+
+    if (chapter.video == 'assets/video1.mp4') {
+        img.innerHTML = "<video src='assets/video1.mp4' autoplay='autoplay' loop='true'></video>";
+    };
+
+    if (chapter.video == 'assets/video2.mp4') {
+        img.innerHTML = "<video src='assets/video2.mp4' autoplay='autoplay' loop='true'></video>";
+    };
+
+    const son = new Audio('assets/boop.mp3');
+    const body = document.querySelector('body')
+
+    btn.onclick = function () {
+        body.classList.add('play');
+        son.play();
+        son.addEventListener('ended', function () {
+            body.classList.remove('play');
+        });
+    };
+    console.log(localStorage.getItem("data"));
+};
+
+
+if(localStorage.getItem("data") != undefined){
+    goToChapter(localStorage.getItem('data'));
 
 }
