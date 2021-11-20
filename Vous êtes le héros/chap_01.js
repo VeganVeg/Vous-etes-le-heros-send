@@ -1,4 +1,9 @@
+const son = new Audio('assets/boop.mp3');
 let tookWatch = false;
+if(localStorage.getItem("tookWatch") != undefined) {
+    tookWatch = localStorage.getItem("tookWatch");
+}
+
 function watchOrNot() {
     tookWatch = true;
     goToChapter("kyle_goesto_address");
@@ -7,8 +12,7 @@ function watchOrNot() {
 function watchStatus() {
     if (tookWatch == true) {
         goToChapter("kyle_has_watch")
-    }
-    else if (tookWatch == false) {
+    } else {
         goToChapter("kyle_no_watch")
     }
 }
@@ -350,15 +354,10 @@ let chaptersObj = {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() { 
-    goToChapter(localStorage.getItem('data'))
-  });
-
 function goToChapter(chapterName) {
     const chapter = chaptersObj[chapterName];
 
     localStorage.setItem("data", chapterName);
-
 
     let subtitle = document.querySelector('.chapter');
     let text = document.querySelector('.text');
@@ -373,31 +372,20 @@ function goToChapter(chapterName) {
     btn.innerHTML = btnValue;
     subtitle.innerText = chaptersObj[chapterName].subtitle;
     text.innerText = chaptersObj[chapterName].text;
-    img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
+    
+    if(chapter.video != undefined) { // Si la propriété video existe et contient qlc
+        img.innerHTML = `<video src='${chapter.video}' autoplay muted loop></video>`;
+    } else {
+        img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
+    }
 
-    if (chapter.video == 'assets/video1.mp4') {
-        img.innerHTML = "<video src='assets/video1.mp4' autoplay='autoplay' loop='true'></video>";
-    };
-
-    if (chapter.video == 'assets/video2.mp4') {
-        img.innerHTML = "<video src='assets/video2.mp4' autoplay='autoplay' loop='true'></video>";
-    };
-
-    const son = new Audio('assets/boop.mp3');
-    const body = document.querySelector('body')
-
-    btn.onclick = function () {
-        body.classList.add('play');
-        son.play();
-        son.addEventListener('ended', function () {
-            body.classList.remove('play');
-        });
-    };
-    console.log(localStorage.getItem("data"));
+    son.currentTime = 0; // On remet le son au début
+    son.play(); // on joue le son
 };
 
-
+let firstChapter = 'kyle_text_mia';
 if(localStorage.getItem("data") != undefined){
-    goToChapter(localStorage.getItem('data'));
-
+    firstChapter = localStorage.getItem('data');
 }
+
+goToChapter(firstChapter);
