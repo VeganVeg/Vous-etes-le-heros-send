@@ -1,4 +1,5 @@
 const son = new Audio('assets/boop.mp3');
+
 let tookWatch = false;
 if(localStorage.getItem("tookWatch") != undefined) {
     tookWatch = localStorage.getItem("tookWatch");
@@ -385,6 +386,7 @@ function goToChapter(chapterName) {
 
 let firstChapter = 'kyle_text_mia';
 if(localStorage.getItem("data") != undefined){
+
     firstChapter = localStorage.getItem('data');
 }
 
