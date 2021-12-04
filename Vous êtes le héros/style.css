@@ -90,6 +90,21 @@ button{
   background-color: var(--gris);
 }
 
+.btn-reset{
+  transform: translate(100%, 150%);
+}
+
+.checkbox{
+  position: relative;
+  top: 20px;
+  right: 200px;
+  font-size: 18px;
+    font-family: 'classic';
+    padding: 3px 15px;
+    padding-left: 7px;
+    background-color: var(--gris);
+}
+
 html,
 body {
   height: 100%;

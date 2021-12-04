@@ -1,7 +1,15 @@
+
+const checkbox = document.querySelector('.input' )
+let soundOrNot = true
+
+checkbox.addEventListener('change', function(){
+    soundOrNot = checkbox.checked; 
+})
+
 const son = new Audio('assets/boop.mp3');
 
 let tookWatch = false;
-if(localStorage.getItem("tookWatch") != undefined) {
+if (localStorage.getItem("tookWatch") != undefined) {
     tookWatch = localStorage.getItem("tookWatch");
 }
 
@@ -373,21 +381,37 @@ function goToChapter(chapterName) {
     btn.innerHTML = btnValue;
     subtitle.innerText = chaptersObj[chapterName].subtitle;
     text.innerText = chaptersObj[chapterName].text;
-    
-    if(chapter.video != undefined) { // Si la propriété video existe et contient qlc
+
+    if (chapter.video != undefined) { // Si la propriété video existe et contient qlc
         img.innerHTML = `<video src='${chapter.video}' autoplay muted loop></video>`;
     } else {
         img.innerHTML = `<img src="${chaptersObj[chapterName].img}">`;
     }
 
     son.currentTime = 0; // On remet le son au début
-    son.play(); // on joue le son
+
+    if(soundOrNot){
+        son.play();
+    }
+     // on joue le son
 };
 
 let firstChapter = 'kyle_text_mia';
-if(localStorage.getItem("data") != undefined){
+if (localStorage.getItem("data") != undefined) {
 
     firstChapter = localStorage.getItem('data');
 }
 
 goToChapter(firstChapter);
+
+const btnReset = document.querySelector('.btn-reset');
+
+btnReset.addEventListener('click', function(){
+    function reset(){
+        tookWatch = false;
+        goToChapter('kyle_text_mia');
+        localStorage.clear('data');
+    }
+    reset();
+});
+
