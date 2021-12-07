@@ -145,7 +145,7 @@ let chaptersObj = {
 
     kyle_calls_cops: {
         subtitle: 'Kyle decides to call the cops anyway',
-        text: 'Kyle decided to call the cops anyway, but the kidnapper wasnt playing games with him. As a result, Mia died.(not in the discussion)',
+        text: 'Kyle decided to call the cops anyway, but the kidnapper wasnt playing games with him. As a result, Mia died.',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'try again',
@@ -279,7 +279,7 @@ let chaptersObj = {
 
     kyle_goesto_address: {
         subtitle: 'Kyle goes to the address',
-        text: 'Kyle goes to the address (not in the discussion)',
+        text: 'Kyle goes to the address.',
         video: 'assets/video1.mp4',
         option: [{
             text: 'continue',
@@ -300,7 +300,7 @@ let chaptersObj = {
 
     kyle_no_watch: {
         subtitle: 'Kyle doesnt have his watch with him',
-        text: 'Kyle didnt bring his watch with him. He will therefore not be able to get to the appointment on time, which will make Mia die.(not in the discussion)',
+        text: 'Kyle didnt bring his watch with him. He will therefore not be able to get to the appointment on time, which will make Mia dies.',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'try again',
@@ -323,7 +323,7 @@ let chaptersObj = {
 
     kyle_finds_mia_first: {
         subtitle: 'Kyle wants to find Mia first',
-        text: 'Kyle got lost trying to find Mia by himself. He will therefore not be able to get to the appointment on time, which will make Mia die.(not in the discussion)',
+        text: 'Kyle got lost trying to find Mia by himself. He will therefore not be able to get to the appointment on time, which will make Mia dies.',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'try again',
@@ -343,7 +343,7 @@ let chaptersObj = {
 
     kdnp_brings_mia: {
         subtitle: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves',
-        text: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves(not in the discussion)',
+        text: 'The kidnapper arrives with Mia, takes the money, releases Mia and leaves.',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'continue',
@@ -353,7 +353,7 @@ let chaptersObj = {
 
     kyle_mia_leave: {
         subtitle: 'Kyle leaves with Mia',
-        text: 'Mia leaves safely with Kyle.(not in the discussion)',
+        text: 'Mia leaves safely with Kyle. THE END',
         img: 'assets/image_texte.jpg',
         option: [{
             text: 'try again',
@@ -363,7 +363,11 @@ let chaptersObj = {
     }
 }
 
+const body = document.querySelector("body");
+
+
 function goToChapter(chapterName) {
+    body.className = chapterName
     const chapter = chaptersObj[chapterName];
 
     localStorage.setItem("data", chapterName);

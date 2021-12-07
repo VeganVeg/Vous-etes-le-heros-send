@@ -91,16 +91,16 @@ button{
 }
 
 .btn-reset{
-  transform: translate(100%, 150%);
+  transform: translate(100%, 220%);
 }
 
 .checkbox{
   position: relative;
-  top: 20px;
+  top: 40px;
   right: 200px;
   font-size: 18px;
     font-family: 'classic';
-    padding: 3px 15px;
+    padding: 6px 15px;
     padding-left: 7px;
     background-color: var(--gris);
 }
@@ -108,4 +108,27 @@ button{
 html,
 body {
   height: 100%;
+}
+
+.kyle_calls_cops{
+  background-image: url(assets/gif_bug.gif);
+}
+
+.kdnp_kills_mia2{
+  background-image: url(assets/gif_bug.gif);
+}
+
+.kyle_no_watch{
+  background-image: url(assets/gif_bug.gif);
+
+}
+
+.kyle_finds_mia_first{
+  background-image: url(assets/gif_bug.gif);
+}
+
+.kyle_mia_leave{
+  background-image: url(assets/static_gif.gif);
+  background-size:cover;
+  background-position: center;
 }
