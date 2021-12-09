@@ -122,7 +122,7 @@ let chaptersObj = {
     },
 
     kyle_threat: {
-        subtitle: 'Kyle threatens to call the cops',
+        subtitle: 'Kyles threats',
         text: 'You know what, im calling the cops.',
         img: imgText,
         option: [{
@@ -223,7 +223,7 @@ let chaptersObj = {
     },
 
     kdnp_answer_money: {
-        subtitle: 'How much money does he want',
+        subtitle: 'How much money does he want?',
         text: 'I want 80,000$.',
         img: imgText,
         option: [{
@@ -269,7 +269,7 @@ let chaptersObj = {
     },
 
     kdnp_gives_address: {
-        subtitle: 'Where does Kyle should give the money',
+        subtitle: 'Where does Kyle should give the money?',
         text: 'Heres the address: 813 Howard Street. At 22:00, dont be late because you know what will happen to your girlfriend.',
         img: imgText,
         option: [{
