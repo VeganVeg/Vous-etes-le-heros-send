@@ -1,6 +1,6 @@
 # SEND
 <br>
-<strong>En ligne : <a href="https://veganveg.github.io/Vous-etes-le-heros-send/">https://veganveg.github.io/Vous-etes-le-heros-send/</a><br>
+<strong>En ligne : https://veganveg.github.io/Vous-etes-le-heros-send/<br>
 <br>
 <a href="https://smnarnold.com/projets/vous-etes-le-heros">Développement web - Projet vous êtes le héros</a><br>
 <br>
