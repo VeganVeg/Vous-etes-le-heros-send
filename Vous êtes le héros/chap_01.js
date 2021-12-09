@@ -102,7 +102,7 @@ let chaptersObj = {
     },
 
     what_kyle_wants: {
-        subtitle: 'what Kyle wants',
+        subtitle: 'What Kyle wants',
         text: 'Alright look, I will give you what you want, but first I want to talk to her.',
         img: imgText,
         option: [{
@@ -132,7 +132,7 @@ let chaptersObj = {
     },
 
     kdnp_threat: {
-        subtitle: 'The kidnapper threatens kyle',
+        subtitle: 'The kidnapper threatens Kyle',
         text: 'If you call the cops, she dies.',
         img: imgText,
         option: [{
