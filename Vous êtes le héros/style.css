@@ -91,6 +91,7 @@ button{
 }
 
 .btn-reset{
+<<<<<<< Updated upstream
   transform: translate(78%, 230%);
 }
 
@@ -103,6 +104,9 @@ button{
     padding: 6px 15px;
     padding-left: 7px;
     background-color: var(--gris);
+=======
+  transform: translate(105%, 50%);
+>>>>>>> Stashed changes
 }
 
 html,

@@ -409,6 +409,7 @@ if (localStorage.getItem("data") != undefined) {
 
 goToChapter(firstChapter);
 
+<<<<<<< Updated upstream
 const btnReset = document.querySelector('.btn-reset');
 
 btnReset.addEventListener('click', function(){
@@ -420,3 +421,15 @@ btnReset.addEventListener('click', function(){
     reset();
 });
 
+=======
+const btnReset = document.querySelector('.btn-reset')
+
+btnReset.addEventListener('click', function () {
+    function reset() {
+        tookWatch = false;
+        goToChapter('kyle_text_mia')
+        localStorage.clear('data');
+    }
+    reset();
+});
+>>>>>>> Stashed changes
