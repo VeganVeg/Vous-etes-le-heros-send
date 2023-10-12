@@ -382,7 +382,7 @@ function goToChapter(chapterName) {
     for (let index = 0; index < chapter.option.length; index++) {
         btnValue += `<button onclick = '${chapter.option[index].action}'>${chapter.option[index].text}</button>`;
     };
-
+    
     btn.innerHTML = btnValue;
     subtitle.innerText = chaptersObj[chapterName].subtitle;
     text.innerText = chaptersObj[chapterName].text;
@@ -409,7 +409,7 @@ if (localStorage.getItem("data") != undefined) {
 
 goToChapter(firstChapter);
 
-<<<<<<< Updated upstream
+
 const btnReset = document.querySelector('.btn-reset');
 
 btnReset.addEventListener('click', function(){
@@ -421,15 +421,3 @@ btnReset.addEventListener('click', function(){
     reset();
 });
 
-=======
-const btnReset = document.querySelector('.btn-reset')
-
-btnReset.addEventListener('click', function () {
-    function reset() {
-        tookWatch = false;
-        goToChapter('kyle_text_mia')
-        localStorage.clear('data');
-    }
-    reset();
-});
->>>>>>> Stashed changes
