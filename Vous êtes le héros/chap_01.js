@@ -375,7 +375,7 @@ function goToChapter(chapterName) {
 
     let subtitle = document.querySelector('.chapter');
     let text = document.querySelector('.text');
-    let img = document.querySelector('.image');
+    let img = document.querySelector('.container-img');
     let btn = document.querySelector('.button');
     let btnValue = '';
 
