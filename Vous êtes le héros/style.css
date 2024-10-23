@@ -47,8 +47,10 @@ body {
   color: var(--gris);
 }
 
-h1{
+.logo{
   margin: 0;
+  position: absolute;
+  font-size: 90px;
 }
 
 .chapter {
@@ -57,14 +59,19 @@ h1{
   color: var(--gris);
   text-align: center;
   margin-bottom:15px;
-  
+}
+
+.container-img{
+  position: absolute;
+  top: 40%;
 }
 
 .txt-container{
   display: flex;
   height: 225px;
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
+  margin-top: 49px;
 }
 
 h2{
@@ -91,6 +98,7 @@ p{
   width: 100%;
   margin-top: 25px;
   text-decoration: none;
+  position: relative;
 }
 
 button{
@@ -103,14 +111,17 @@ button{
   background-color: var(--gris);
 }
 
+.button{
+  top: 40%;
+}
+
 .btn-reset{
-  transform: translate(78%, 230%);
+  position: relative;
+  top: 45%;
 }
 
 .checkbox{
-  position: relative;
-  top: 40px;
-  right: 200px;
+  bottom: 15%;
   font-size: 20px;
     font-family: 'classic';
     padding: 6px 15px;
