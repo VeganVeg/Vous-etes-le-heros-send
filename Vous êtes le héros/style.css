@@ -16,6 +16,11 @@
   --violet: hsla(263, 76%, 32%);
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -51,13 +56,20 @@ h1{
   font-family: 'classic';
   color: var(--gris);
   text-align: center;
-  margin:15px 0;
+  margin-bottom:15px;
   
 }
 
+.txt-container{
+  display: flex;
+  height: 225px;
+  flex-direction: column;
+  justify-content: center
+}
+
 h2{
-  margin: 30px 0;
   font-family: 'title';
+  margin: 0;
 }
 
 .text {
@@ -104,11 +116,6 @@ button{
     padding: 6px 15px;
     padding-left: 7px;
     background-color: var(--gris);
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .kyle_calls_cops{
